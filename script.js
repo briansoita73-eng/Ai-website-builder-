@@ -17,13 +17,6 @@ document.getElementById("paymentModal").style.display =
 "none";
 }
 
-function confirmPayment(){
-alert(
-"Payment submitted. Brian Soita will review your order."
-);
-
-closePayment();
-}
 function register(){
 
 let email =
