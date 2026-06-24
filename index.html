@@ -1,0 +1,93 @@
+# Ai-website-builder-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Website Builder</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="logo">AI Website Builder</div>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#features">Features</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Build Your Dream Website With AI</h1>
+  <p>Describe your website. Get a quote. Preview it. Pay. Publish.</p>
+  <button onclick="startChat()">Start Building</button>
+</section>
+
+<section class="card">
+  <h2>AI Website Consultant</h2>
+  <div id="chat">
+    <p><strong>AI:</strong> What type of website would you like?</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Estimated Cost</h2>
+  <p>$450 - $1500 depending on features.</p>
+</section>
+
+<section class="card">
+  <h2>Website Preview</h2>
+  <button onclick="generatePreview()">Generate Preview</button>
+  <p id="previewStatus">Waiting...</p>
+</section>
+
+<section class="card">
+  <h2>Publish Website</h2>
+  <button onclick="openPayment()">Publish Website</button>
+</section>
+
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <h2>Publish Website</h2>
+
+    <p>Send Payment To:</p>
+
+    <h3>0790135151</h3>
+
+    <p>Owner: Brian Soita</p>
+
+    <p>After payment upload your transaction code.</p>
+
+    <button onclick="confirmPayment()">Confirm Payment</button>
+    <button onclick="closePayment()">Cancel</button>
+  </div>
+</div>
+
+<section id="about" class="card">
+  <h2>Founder & CEO</h2>
+
+  <p><strong>Brian Soita</strong></p>
+
+  <p>
+    AI Website Builder helps businesses create professional websites
+    using artificial intelligence.
+  </p>
+</section>
+
+<section id="contact" class="card">
+  <h2>Contact</h2>
+
+  <p>Phone: 0790135151</p>
+
+  <p>Email: briansoita73@gmail.com</p>
+</section>
+
+<footer>
+  <p>© 2026 AI Website Builder</p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
