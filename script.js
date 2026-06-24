@@ -108,3 +108,52 @@ Proceed To Payment
 `;
 
 }
+function openPayment(){
+
+document.getElementById(
+"paymentModal"
+).style.display = "block";
+
+}
+
+function closePayment(){
+
+document.getElementById(
+"paymentModal"
+).style.display = "none";
+
+}
+
+function confirmProjectPayment(){
+
+let code =
+document.getElementById("transactionCode").value;
+
+if(code === ""){
+
+alert("Please enter transaction code");
+
+return;
+}
+
+document.getElementById("projects").innerHTML += `
+<div style="margin-top:20px;padding:15px;border-radius:10px;background:#d4edda;color:#155724;">
+✅ Payment Submitted Successfully
+
+<br><br>
+
+Transaction Code: ${code}
+
+<br><br>
+
+Status: Pending Review
+
+<br><br>
+
+Brian Soita will verify your payment and begin building your website.
+</div>
+`;
+
+closePayment();
+
+      }
