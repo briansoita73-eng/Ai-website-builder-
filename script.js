@@ -123,30 +123,86 @@ let code =
 document.getElementById("transactionCode").value;
 
 if(code === ""){
-
 alert("Please enter transaction code");
-
 return;
 }
 
+let projectData = {
+business:
+document.getElementById("business").value,
+
+type:
+document.getElementById("websiteType").value,
+
+transactionCode: code,
+
+status: "Pending Review"
+};
+
+localStorage.setItem(
+"latestProject",
+JSON.stringify(projectData)
+);
+
 document.getElementById("projects").innerHTML += `
-<div style="margin-top:20px;padding:15px;border-radius:10px;background:#d4edda;color:#155724;">
+<div style="margin-top:20px;padding:15px;border-radius:10px;background:#d4edda;">
 ✅ Payment Submitted Successfully
-
 <br><br>
-
-Transaction Code: ${code}
-
-<br><br>
-
 Status: Pending Review
-
-<br><br>
-
-Brian Soita will verify your payment and begin building your website.
 </div>
 `;
 
 closePayment();
 
-      }
+}
+function loadAdminProjects(){
+
+let project =
+localStorage.getItem("latestProject");
+
+if(!project){
+return;
+}
+
+project = JSON.parse(project);
+
+document.getElementById(
+"adminProjects"
+).innerHTML = `
+
+<div class="card">
+
+<h3>${project.business}</h3>
+
+<p>
+Website Type:
+${project.type}
+</p>
+
+<p>
+Transaction Code:
+${project.transactionCode}
+</p>
+
+<p>
+Status:
+${project.status}
+</p>
+
+<button onclick="approveProject()">
+Approve Project
+</button>
+
+</div>
+
+`;
+
+}
+
+function approveProject(){
+
+alert(
+"Project Approved. Status changed to In Progress."
+);
+
+}
