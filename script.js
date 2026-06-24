@@ -68,17 +68,43 @@ document.getElementById("business").value;
 let type =
 document.getElementById("websiteType").value;
 
-let project =
-business + " - " + type;
+let cost = 150;
 
-localStorage.setItem(
-"project",
-project
-);
+if(type === "E-Commerce"){
+cost = 500;
+}
 
-document.getElementById("projects")
-.innerHTML =
-"<p>"+project+"</p>";
+if(type === "Restaurant"){
+cost = 300;
+}
 
-alert("Project Submitted");
+if(type === "Portfolio"){
+cost = 200;
+}
+
+document.getElementById("projects").innerHTML = `
+<h3>AI Analysis</h3>
+
+<p><strong>Business:</strong> ${business}</p>
+
+<p><strong>Website Type:</strong> ${type}</p>
+
+<p><strong>Recommended Pages:</strong></p>
+
+<ul>
+<li>Home</li>
+<li>About</li>
+<li>Contact</li>
+<li>Services</li>
+</ul>
+
+<p><strong>Estimated Cost:</strong> $${cost}</p>
+
+<p><strong>Status:</strong> Pending Payment</p>
+
+<button onclick="openPayment()">
+Proceed To Payment
+</button>
+`;
+
 }
