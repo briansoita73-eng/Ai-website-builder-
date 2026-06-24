@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Dashboard</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+
+<h2>AI Website Builder Dashboard</h2>
+
+<a href="index.html">Home</a>
+
+</header>
+
+<div class="card">
+
+<h2>Submit New Project</h2>
+
+<input type="text" id="business"
+placeholder="Business Name">
+
+<br><br>
+
+<select id="websiteType">
+
+<option>Business Website</option>
+<option>E-Commerce</option>
+<option>Portfolio</option>
+<option>Restaurant</option>
+
+</select>
+
+<br><br>
+
+<textarea id="description"
+placeholder="Describe your website"></textarea>
+
+<br><br>
+
+<button onclick="submitProject()">
+Submit Project
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>My Projects</h2>
+
+<div id="projects"></div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
