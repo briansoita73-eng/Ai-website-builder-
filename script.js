@@ -127,8 +127,7 @@ document.getElementById(
 ).style.display = "none";
 
 }
-
-function confirmProjectPayment(){
+async function confirmProjectPayment(){
 
 let code =
 document.getElementById("transactionCode").value;
@@ -138,34 +137,36 @@ alert("Please enter transaction code");
 return;
 }
 
-let projectData = {
-business:
-document.getElementById("business").value,
+let business =
+document.getElementById("business").value;
 
-type:
-document.getElementById("websiteType").value,
+let type =
+document.getElementById("websiteType").value;
 
-transactionCode: code,
-
+const { error } =
+await supabaseClient
+.from("projects")
+.insert([
+{
+business: business,
+website_type: type,
+transaction_code: code,
 status: "Pending Review"
-};
+}
+]);
 
-localStorage.setItem(
-"latestProject",
-JSON.stringify(projectData)
-);
+if(error){
+alert("Database Error");
+console.log(error);
+return;
+}
 
-document.getElementById("projects").innerHTML += `
-<div style="margin-top:20px;padding:15px;border-radius:10px;background:#d4edda;">
-✅ Payment Submitted Successfully
-<br><br>
-Status: Pending Review
-</div>
-`;
+alert("Payment Submitted Successfully");
 
 closePayment();
 
 }
+
 function loadAdminProjects(){
 
 let project =
