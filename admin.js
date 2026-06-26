@@ -85,12 +85,14 @@ status:"In Progress"
 })
 .eq("id",id);
 
-if(!error){
+if(error){
+console.log(error);
+alert(error.message);
+return;
+}
 
 alert("Project Approved");
 
 loadProjects();
-
-}
 
 }
