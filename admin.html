@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
 <meta charset="UTF-8">
+
 <title>Admin Dashboard</title>
+
 <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
 
 <header>
+
 <h1>Brian Soita Admin Dashboard</h1>
-<a href="index.html">Home</a>
+
+<a href="dashboard.html">Dashboard</a>
+
 </header>
 
 <div class="card">
 
-<h2>Customer Orders</h2>
+<h2>Customer Projects</h2>
 
 <div id="adminProjects">
 
-<p>No projects yet.</p>
+Loading...
 
 </div>
 
 </div>
 
-<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-<script>
-loadAdminProjects();
-</script>
+<script src="admin.js"></script>
 
 </body>
+
 </html>
