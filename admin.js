@@ -58,8 +58,17 @@ ${project.status}
 </span>
 </p>
 
-<button
-onclick="approveProject(${project.id})">
+<textarea
+id="note${project.id}"
+placeholder="Write an admin note...">${project.admin_note || ""}</textarea>
+
+<br><br>
+
+<button onclick="saveNote(${project.id})">
+Save Note
+</button>
+
+<button onclick="approveProject(${project.id})">
 Approve
 </button>
 
@@ -92,6 +101,29 @@ return;
 }
 
 alert("Project Approved");
+
+loadProjects();
+
+}
+async function saveNote(id){
+
+let note =
+document.getElementById("note" + id).value;
+
+const { error } =
+await supabaseClient
+.from("projects")
+.update({
+admin_note: note
+})
+.eq("id", id);
+
+if(error){
+alert(error.message);
+return;
+}
+
+alert("Admin note saved successfully!");
 
 loadProjects();
 
