@@ -218,3 +218,33 @@ alert(
 );
 
 }
+loadProjectStatus();
+
+async function loadProjectStatus(){
+
+const { data, error } =
+await supabaseClient
+.from("projects")
+.select("*")
+.order("id", { ascending: false })
+.limit(1);
+
+if(error || data.length === 0){
+return;
+}
+
+let project = data[0];
+
+document.getElementById("projectStatus").innerHTML = `
+<h3>${project.business}</h3>
+
+<p><strong>Website Type:</strong> ${project.website_type}</p>
+
+<p><strong>Status:</strong> ${project.status}</p>
+
+<p><strong>Admin Note:</strong></p>
+
+<p>${project.admin_note || "No updates yet."}</p>
+`;
+
+}
