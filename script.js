@@ -73,6 +73,38 @@ let type =
 document.getElementById("websiteType").value;
 let prompt =
 document.getElementById("aiPrompt").value.toLowerCase();
+let pages = [
+"Home",
+"About",
+"Contact",
+"Services"
+];
+
+let features = [];
+
+if(prompt.includes("restaurant")){
+pages.push("Menu");
+pages.push("Reservations");
+pages.push("Gallery");
+
+features.push("Online Ordering");
+features.push("Table Booking");
+}
+
+if(prompt.includes("shop") || prompt.includes("e-commerce")){
+pages.push("Shop");
+pages.push("Cart");
+pages.push("Checkout");
+
+features.push("Online Payments");
+}
+
+if(prompt.includes("portfolio")){
+pages.push("Projects");
+pages.push("Skills");
+
+features.push("Contact Form");
+}  
 let cost = 150;
 
 if(type === "E-Commerce"){
@@ -97,10 +129,13 @@ document.getElementById("projects").innerHTML = `
 <p><strong>Recommended Pages:</strong></p>
 
 <ul>
-<li>Home</li>
-<li>About</li>
-<li>Contact</li>
-<li>Services</li>
+${pages.map(page => `<li>${page}</li>`).join("")}
+</ul>
+
+<p><strong>Recommended Features:</strong></p>
+
+<ul>
+${features.map(feature => `<li>${feature}</li>`).join("")}
 </ul>
 
 <p><strong>Estimated Cost:</strong> $${cost}</p>
