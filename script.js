@@ -71,7 +71,8 @@ document.getElementById("business").value;
 
 let type =
 document.getElementById("websiteType").value;
-
+let prompt =
+document.getElementById("aiPrompt").value.toLowerCase();
 let cost = 150;
 
 if(type === "E-Commerce"){
