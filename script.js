@@ -73,6 +73,7 @@ let type =
 document.getElementById("websiteType").value;
 let prompt =
 document.getElementById("aiPrompt").value.toLowerCase();
+let email = localStorage.getItem("email");
 let pages = [
 "Home",
 "About",
