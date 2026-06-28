@@ -31,37 +31,51 @@ document.getElementById("paymentModal").style.display =
 function register(){
 
 let email =
-document.getElementById("regEmail").value;
+document.getElementById("regEmail").value.trim();
 
 let password =
-document.getElementById("regPassword").value;
+document.getElementById("regPassword").value.trim();
 
-localStorage.setItem("email",email);
-localStorage.setItem("password",password);
+if(email === "" || password === ""){
+alert("Please fill in all fields.");
+return;
+}
 
-alert("Registration Successful");
+localStorage.setItem("email", email);
+localStorage.setItem("password", password);
 
-window.location="login.html";
+alert("Registration Successful!");
+
+window.location = "login.html";
+
 }
 
 function login(){
 
 let email =
-document.getElementById("email").value;
+document.getElementById("email").value.trim();
 
 let password =
-document.getElementById("password").value;
+document.getElementById("password").value.trim();
 
 if(
-email===localStorage.getItem("email")
-&&
-password===localStorage.getItem("password")
+email === localStorage.getItem("email") &&
+password === localStorage.getItem("password")
 ){
-window.location="dashboard.html";
+
+localStorage.setItem("loggedInUser", email);
+
+alert("Login Successful!");
+
+window.location = "dashboard.html";
+
 }
 else{
-alert("Invalid Login");
+
+alert("Invalid Email or Password");
+
 }
+
 }
 
 function submitProject(){
