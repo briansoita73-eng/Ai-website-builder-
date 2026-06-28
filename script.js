@@ -178,7 +178,8 @@ document.getElementById("business").value;
 
 let type =
 document.getElementById("websiteType").value;
-
+let prompt =
+document.getElementById("aiPrompt").value;
 const { error } =
 await supabaseClient
 .from("projects")
