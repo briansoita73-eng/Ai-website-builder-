@@ -6,7 +6,7 @@ const SUPABASE_URL =
 "https://qypcjqijvevxngpopnja.supabase.co";
 
 const SUPABASE_KEY =
-"YOUR_ANON_KEY_HERE";
+"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InF5cGNqcWlqdmV2eG5ncG9wbmphIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODI0MDE5MjYsImV4cCI6MjA5Nzk3NzkyNn0.f9BwaVKhb2cZm0bu4MFF2rvTAnBI_R6Jx7Xab9OAvaM";
 
 const supabaseClient =
 supabase.createClient(
