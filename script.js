@@ -187,6 +187,7 @@ await supabaseClient
 {
 business: business,
 website_type: type,
+description: prompt,
 transaction_code: code,
 status: "Pending Review"
 }
