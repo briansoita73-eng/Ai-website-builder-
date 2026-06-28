@@ -162,8 +162,6 @@ function closePayment(){
 document.getElementById(
 "paymentModal"
 ).style.display = "none";
-
-}
 async function confirmProjectPayment(){
 
 let code =
@@ -179,8 +177,13 @@ document.getElementById("business").value;
 
 let type =
 document.getElementById("websiteType").value;
+
 let prompt =
 document.getElementById("aiPrompt").value;
+
+let email =
+localStorage.getItem("email");
+
 const { error } =
 await supabaseClient
 .from("projects")
@@ -189,6 +192,7 @@ await supabaseClient
 business: business,
 website_type: type,
 description: prompt,
+email: email,
 transaction_code: code,
 status: "Pending Review"
 }
