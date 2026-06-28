@@ -84,3 +84,140 @@ window.location =
 "login.html";
 
 }
+function submitProject(){
+
+const business =
+document.getElementById("business").value.trim();
+
+const type =
+document.getElementById("websiteType").value;
+
+const prompt =
+document.getElementById("aiPrompt").value.toLowerCase();
+
+if(business === "" || prompt === ""){
+
+alert("Please complete all fields.");
+return;
+
+}
+
+let pages = [
+"Home",
+"About",
+"Services",
+"Contact"
+];
+
+let features = [];
+
+let cost = 150;
+
+if(type === "Restaurant"){
+
+cost = 300;
+
+pages.push(
+"Menu",
+"Reservations",
+"Gallery"
+);
+
+features.push(
+"Online Ordering",
+"Table Booking"
+);
+
+}
+
+if(type === "Portfolio"){
+
+cost = 200;
+
+pages.push(
+"Projects",
+"Skills"
+);
+
+features.push(
+"Contact Form"
+);
+
+}
+
+if(type === "E-Commerce"){
+
+cost = 500;
+
+pages.push(
+"Shop",
+"Cart",
+"Checkout"
+);
+
+features.push(
+"Online Payments",
+"Order Tracking"
+);
+
+}
+
+if(prompt.includes("whatsapp")){
+
+features.push("WhatsApp Chat");
+
+}
+
+if(prompt.includes("booking")){
+
+features.push("Booking System");
+
+}
+
+if(prompt.includes("blog")){
+
+pages.push("Blog");
+
+}
+
+document.getElementById("projects").innerHTML = `
+
+<div class="card">
+
+<h3>AI Website Analysis</h3>
+
+<p><strong>Business:</strong> ${business}</p>
+
+<p><strong>Website Type:</strong> ${type}</p>
+
+<p><strong>Recommended Pages</strong></p>
+
+<ul>
+
+${pages.map(page=>`<li>${page}</li>`).join("")}
+
+</ul>
+
+<p><strong>Recommended Features</strong></p>
+
+<ul>
+
+${features.map(feature=>`<li>${feature}</li>`).join("")}
+
+</ul>
+
+<h3>Estimated Cost: $${cost}</h3>
+
+<p>Status: Pending Payment</p>
+
+<button onclick="openPayment()">
+
+Proceed To Payment
+
+</button>
+
+</div>
+
+`;
+
+}
